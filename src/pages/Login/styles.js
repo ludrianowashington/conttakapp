@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+
+import { Link } from "@react-navigation/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -9,47 +11,53 @@ export const Container = styled.View`
 `;
 
 export const Logo = styled.Image`
-  width: 70%;
-  height: 30%;
+  width: 55%;
+  height: 15%;
   marginBottom: 40px;
   resizeMode: contain;
 `;
 
 export const Input = styled.TextInput`
+  width: 80%;
   paddingHorizontal: 20px;
-  paddingVertical: 15px;
+  paddingVertical: 12px;
   borderRadius: 5px;
   backgroundColor: #FFF;
-  alignSelf: stretch;
+  alignSelf: center;
   marginBottom: 15px;
   marginHorizontal: 20px;
-  fontSize: 18px;
+  fontSize: 15px;
 `;
 
 export const Button = styled.TouchableOpacity`
+  width: 80%;
   paddingHorizontal: 20px;
   paddingVertical: 15px;
   borderRadius: 5px;
   backgroundColor: #04D361;
-  alignSelf: stretch;
+  alignSelf: center;
   alignItems: center;
-  marginBottom: 15px;
-  marginHorizontal: 20px;
-  fontSize: 16px;
-  resizeMode: contain; 
 `;
 
 export const Text = styled.Text`
   fontFamily: 'Archivo_700Bold';
-  fontSize: 20;
+  fontSize: 18px;
   fontWeight: 700;
   color: #fff;
-`;
+  `;
 
-export const Header = styled.View`
-  resizeMode: contain;
-  flex: 1;
-  height: 30;
-  alignSelf: center;
-`;
+export const Section = styled.View`
+  width: 80%;
+  flexDirection: row;
+  color: #fff;
+  justifyContent: space-between;
+  marginTop: 13px;
+  `;
 
+export const StyleLink = styled(Link)`
+  color: #FFF;
+  paddingHorizontal: 20px;
+  font-family: 'Archivo_700Bold';
+  paddingVertical: 5px;
+  paddingHorizontal: 10px;
+`;

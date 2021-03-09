@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import { Link } from "@react-navigation/native";
 
-import logoImg from '../../assets/img/logo2.png'
+import logoImg from '../../assets/img/logo.png'
 
 import {
   Container,
@@ -9,7 +10,8 @@ import {
   Input,
   Button,
   Text,
-  Header
+  Section,
+  StyleLink
 } from "./styles";
 
 export default function Login() {
@@ -17,8 +19,6 @@ export default function Login() {
   return (
     <Container>
       <Logo source={logoImg} />
-
-
 
       <Input
         label='Email'
@@ -35,7 +35,11 @@ export default function Login() {
         <Text>Entrar</Text>
       </Button>
 
-      <Link></Link>
+      <Section>
+        <StyleLink to='/'>Esqueci a senha</StyleLink>
+        <StyleLink to='/'>Cadastrar</StyleLink>
+      </Section>
+
     </Container>
 
 
