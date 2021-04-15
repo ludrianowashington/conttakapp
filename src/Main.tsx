@@ -16,21 +16,21 @@ import Routes from './routes';
 
 export default function Main() {
 
-  // useEffect(() => {
-  //   async function updateApp() {
-  //     const {isAvailable} = await Updates.checkForUpdateAsync();
+  useEffect(() => {
+    async function updateApp() {
+      const {isAvailable} = await Updates.checkForUpdateAsync();
 
-  //     if (isAvailable) {
-  //       await Updates.fetchUpdateAsync();
+      if (isAvailable) {
+        await Updates.fetchUpdateAsync();
 
-  //       await Updates.reloadAsync();
-  //     }
+        await Updates.reloadAsync();
+      }
       
-  //   }
+    }
 
-  //   updateApp();
+    updateApp();
 
-  // }, [])
+  }, [])
   
   let [fontsLoaded] = useFonts({
     Archivo_400Regular, Archivo_700Bold, Poppins_400Regular, Poppins_600SemiBold
