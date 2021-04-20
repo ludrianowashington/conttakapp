@@ -17,13 +17,13 @@ const AppStack = createStackNavigator();
 // Component Function
 function Screen() {
   return(
-    <Text>Wallet</Text>
+    <Text>Settings</Text>
   )
 }
 
 
 // Header Function
-export default function Wallet() {
+export default function Cards() {
   const {signOut} = useContext(AuthContext);
 
   function handleMenu() {}
@@ -35,10 +35,10 @@ export default function Wallet() {
   return (
 
     <AppStack.Navigator>
-      <AppStack.Screen name='Wallet' 
+      <AppStack.Screen name='Overview' 
         component={Screen}
         options={{
-          title: 'Wallet',
+          title: 'Cartões',
           headerStyle: {
             backgroundColor: '#8257E5',
           },

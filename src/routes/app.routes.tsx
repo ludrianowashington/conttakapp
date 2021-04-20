@@ -1,11 +1,11 @@
 import React from 'react'
 
-import {FontAwesome, Ionicons} from '@expo/vector-icons'
+import {FontAwesome} from '@expo/vector-icons'
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 import Overview from '../pages/Overview'
-import Wallet from '../pages/Wallet'
+import Account from '../pages/Account'
 import Transaction from '../pages/Transaction'
 import Profile from '../pages/Profile'
 import Settings from '../pages/Settings'
@@ -18,16 +18,34 @@ const Tab = createBottomTabNavigator();
 export default function AppRoutes() {
   return(
     <Tab.Navigator
-    tabBarOptions={{
-      showLabel: false,
-      activeTintColor: '#857CE2',
-      inactiveTintColor: '#747272',
-    }}
+      tabBarOptions={{
+        showLabel: false,
+        style: {
+          justifyContent: 'space-around',
+          height: 55,
+          backgroundColor: '#8257E5',
+        },
+        activeTintColor: '#c7b9fa',
+        inactiveTintColor: '#e3e2ec',
+        labelStyle: {
+          fontSize: 13,
+          fontWeight: 'bold'
+        }, 
+        tabStyle: {
+          alignItems: 'center',
+                  
+          paddingVertical: 3,
+          
+        }, 
+
+        activeBackgroundColor: '#7a53d3'
+      }}
     >
       <Tab.Screen 
         name='Home' 
         component={Overview}
         options={{
+          
           tabBarIcon: ({color, size}) => (
           
             <FontAwesome name='home' size={size} color={color}/>
@@ -40,13 +58,13 @@ export default function AppRoutes() {
         component={Transaction} 
         options={{
           tabBarIcon: ({color, size}) => (
-            <FontAwesome name='pie-chart' size={size} color={color} />
+            <FontAwesome name='exchange' size={size} color={color} />
           )
         }}
         />
         <Tab.Screen 
-        name="Wallet" 
-        component={Wallet} 
+        name="Account" 
+        component={Account} 
         options={{
           tabBarIcon: ({color, size}) => (
             <FontAwesome name='bank' size={size} color={color} />
@@ -58,7 +76,7 @@ export default function AppRoutes() {
         component={Goals} 
         options={{
           tabBarIcon: ({color, size}) => (
-            <FontAwesome name='flag-checkered' size={size} color={color} />
+            <FontAwesome name='bullseye' size={size} color={color} />
           )
         }}
         />       

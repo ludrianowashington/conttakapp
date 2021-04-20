@@ -15,6 +15,7 @@ import Balance from '../../components/Balance'
 import {FontAwesome} from '@expo/vector-icons'
 
 import styles from "./styles";
+import { list } from './listTransaction'
 
 import { PieChart } from "react-native-chart-kit";
 
@@ -73,7 +74,7 @@ function Screen() {
 
 
   return(
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ScrollView >
         <Balance/>        
 
@@ -82,7 +83,6 @@ function Screen() {
 
             <Text style={styles.titleCard}>Resumo Mensal</Text>
 
-              <Text>Bezier Bar Chart</Text>
               <PieChart
                 data={data}
                 width={370}
@@ -94,134 +94,47 @@ function Screen() {
                 center={[5, 10]}
                 absolute
               />
+
+              <TouchableOpacity style={styles.cardButton}>
+                <Text style={styles.cardButtonText}>Ver mais</Text>
+              </TouchableOpacity>
              
           </View>
 
           <View style={styles.card}>
 
           <Text style={styles.titleCard}>Transações Recentes</Text>
-            <ScrollView>
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 12.623,53</Text>
-                </View>
-              </View>
+                      
+            <View style={styles.scroller}>
+              <ScrollView>
 
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-
-              <View style={styles.listItem}>
-                <View style={styles.img}>
-                  <Text>N</Text>
-                </View>
-                <View style={styles.name}>
-                  <Text style={styles.titleItem}>Netflix</Text>
-                  <Text style={styles.dateItem}>Apr 23, 2021</Text>
-                </View>
-                <View style={styles.value}>
-                  <Text style={styles.currency}>R$ 23,53</Text>
-                </View>
-              </View>
-            </ScrollView>
+                {list.map((item, index) => {
+                  return (
+                    <View style={styles.listItem} key={index}>
+                      <View style={styles.img}>
+                        <Text>{item.image}</Text>
+                      </View>
+                      <View style={styles.name}>
+                        <Text style={styles.titleItem}>{item.title}</Text>
+                        <Text style={styles.dateItem}>{item.date}</Text>
+                      </View>
+                      <View style={styles.value}>
+                        <Text style={styles.currency}>R$ {item.value}</Text>
+                      </View>
+                    </View>
+                  )})
+                }
+              
+              </ScrollView>
+            </View>
+            
+            <TouchableOpacity style={styles.cardButton}>
+              <Text style={styles.cardButtonText}>Ver mais</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   )
 }
 
@@ -241,7 +154,7 @@ export default function Overview() {
       <AppStack.Screen name='Overview' 
         component={Screen}
         options={{
-          title: 'Overview',
+          title: 'Visão Geral',
           headerStyle: {
             backgroundColor: '#8257E5',
           },

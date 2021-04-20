@@ -5,7 +5,8 @@ import {FontAwesome} from '@expo/vector-icons';
 
 import {
    Text, 
-   TouchableOpacity
+   TouchableOpacity,
+   View
 } from 'react-native';
 
 import styles from './styles';
@@ -17,7 +18,9 @@ const AppStack = createStackNavigator();
 // Component Function
 function Screen() {
   return(
-    <Text>Goals</Text>
+    <View>
+      
+    </View>
   )
 }
 

@@ -22,7 +22,7 @@ export default StyleSheet.create({
     alignSelf: 'center', 
     color: '#f9f9f9'
   },
-
+ 
   view: {
     paddingHorizontal: 10
   },
@@ -30,14 +30,19 @@ export default StyleSheet.create({
   card: {
     flex: 1, 
 
-    height: 400,
     padding: 10,
     marginTop: 13,
     
     borderRadius: 10,
 
+    justifyContent: 'space-between',
+
     backgroundColor: '#e2e5ef'
   }, 
+
+  scroller: {
+    height: 300
+  },
 
   titleCard: {
     paddingBottom: 15,
@@ -98,4 +103,19 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold'
   },   
+
+  cardButton: {
+    
+    paddingVertical: 16,
+    paddingHorizontal: 8, 
+
+    alignSelf: 'flex-end', 
+  }, 
+
+  cardButtonText:{
+    fontSize: 17,
+    fontWeight: 'bold',
+
+    color: '#857CE2'
+  },
 });
