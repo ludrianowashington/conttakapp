@@ -27,7 +27,7 @@ const wait = (timeout: number) => {
   });
 };
 
-// Component Function
+// Function Component One
 function FirstScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -77,7 +77,7 @@ function FirstScreen() {
   )
 }
 
-
+// Function Component Two
 function SecondScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
 

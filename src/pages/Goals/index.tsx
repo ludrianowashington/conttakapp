@@ -4,6 +4,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {FontAwesome} from '@expo/vector-icons'; 
 
 import {
+  FlatList,
+  RefreshControl,
+  SafeAreaView,
    Text, 
    TouchableOpacity,
    View
@@ -12,15 +15,54 @@ import {
 import styles from './styles';
 
 import AuthContext from '../../contexts/auth';
+import { list } from './list';
 
 const AppStack = createStackNavigator();
 
+const wait = (timeout: number) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+};
+
 // Component Function
 function Screen() {
-  return(
-    <View>
-      
-    </View>
+  
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <FlatList 
+          data={list}
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+          keyExtractor={item => String(item.id)}
+          renderItem={({item, index})=>(
+            <TouchableOpacity >
+              <View style={styles.listItem} key={index}>
+                <View style={styles.titleList}>
+                  <Text>{item.title}</Text>
+                </View>
+                <View style={styles.bar}>
+                  <Text>{item.title}</Text>
+                </View>
+                <View style={styles.data}>
+                  <Text style={styles.rest}>Restam R$ {item.rest}</Text>
+                  <Text style={styles.current}>Faltam R$ {item.expense}</Text>
+                  <Text style={styles.expected}>Total R$ {item.limit}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+    </SafeAreaView>
   )
 }
 
