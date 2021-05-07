@@ -36,40 +36,44 @@ export default StyleSheet.create({
   },
 
   titleList: {
-   
+   marginBottom: 6
   }, 
+
+  titleText: {
+    justifyContent: 'center',
+    
+    fontSize: 18, 
+    fontWeight: 'bold',
+  },
   
-  bar: {}, 
+  bar: {
+    paddingHorizontal: 5
+  }, 
+
+  progressBar: {
+    height: 13, 
+
+    borderRadius: 50
+  },
 
   data: {
     flex: 1,
     flexDirection: 'row',
 
-    paddingVertical: 20,
+    paddingVertical: 0,
     paddingEnd: 10,
 
     alignItems: 'flex-end',
+    justifyContent: 'space-around'
   },
 
-  rest: {
-    fontSize: 18,
-
-    color: '#a5a5a5', 
-
-    marginBottom: 8
-  },
-
-  current: {
-    fontSize: 16,
-    fontWeight: 'bold'
-
-  },
-
-  expected: {
-    fontSize: 16,
-    fontWeight: 'bold', 
+  op: {
     
-    color: '#9a9a9a'
+    width: 100,
+    height: 40,
 
+    justifyContent: 'center',
   },
+
+  
 })

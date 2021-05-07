@@ -1,5 +1,6 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { useContext } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
+import {ProgressBar} from 'react-native-paper'
 
 import {FontAwesome} from '@expo/vector-icons'; 
 
@@ -47,15 +48,28 @@ function Screen() {
             <TouchableOpacity >
               <View style={styles.listItem} key={index}>
                 <View style={styles.titleList}>
-                  <Text>{item.title}</Text>
+                  <Text style={styles.titleText}>{item.title}</Text>
                 </View>
                 <View style={styles.bar}>
-                  <Text>{item.title}</Text>
+                  <ProgressBar 
+                    progress={item.progress} 
+                    color={item.color} 
+                    style={styles.progressBar}
+                  />
                 </View>
                 <View style={styles.data}>
-                  <Text style={styles.rest}>Restam R$ {item.rest}</Text>
-                  <Text style={styles.current}>Faltam R$ {item.expense}</Text>
-                  <Text style={styles.expected}>Total R$ {item.limit}</Text>
+                  <View style={styles.op}>
+                    <Text>Restam</Text> 
+                    <Text>R$ {item.rest}</Text>
+                  </View>
+                  <View style={styles.op}>
+                    <Text>Faltam</Text> 
+                    <Text>R$ {item.expense}</Text>
+                  </View>
+                  <View style={styles.op}>
+                    <Text>Total</Text> 
+                    <Text>R$ {item.limit}</Text>
+                  </View>
                 </View>
               </View>
             </TouchableOpacity>
@@ -95,10 +109,8 @@ export default function Goals() {
           },
           headerLeft: () => (
             <TouchableOpacity
-              onPress={handleMenu}
               style={styles.touchableLeft}
             >
-             <FontAwesome name='bars' size={23} color='#f9f9f9'/>
           </TouchableOpacity>
           ),
           headerRight: () => (
