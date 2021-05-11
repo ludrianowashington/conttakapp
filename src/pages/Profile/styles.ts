@@ -5,9 +5,23 @@ export default StyleSheet.create({
     flex: 1
   },
 
-  touchableLeft: {
-    padding: 5,  
-    marginLeft: 8,
+  img: {
+    width: 40,
+    height: 40,
+
+    marginLeft: 10,
+  },
+
+  touchLeft: {    
+    paddingLeft: 5, 
+
+  },
+
+  buttonsTouch: {
+    width: 90, 
+    flexDirection: 'row', 
+
+    justifyContent: 'space-around',
 
   },
 
@@ -101,13 +115,15 @@ export default StyleSheet.create({
     marginTop: 8,
     marginHorizontal: 5,
     
-    paddingHorizontal: 5,
+    
 
   }, 
 
   progressBar: {
-    height: 18, 
+    width: 250,
+    height: 16, 
 
     borderRadius: 50
   },
+
 })

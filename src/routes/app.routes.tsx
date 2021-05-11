@@ -10,6 +10,7 @@ import Transaction from '../pages/Transaction'
 import Profile from '../pages/Profile'
 import Settings from '../pages/Settings'
 import Goals from '../pages/Goals'
+import { StatusBar } from 'react-native'
 
 
 const Tab = createBottomTabNavigator();
@@ -40,6 +41,7 @@ export default function AppRoutes() {
         activeBackgroundColor: '#7a53d3'
       }}
     >
+      
       <Tab.Screen 
         name='Home' 
         component={Overview}

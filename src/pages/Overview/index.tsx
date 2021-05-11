@@ -2,10 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
 import { 
+  Image,
   View, 
   Text, 
   TouchableOpacity, 
   SafeAreaView,
+  StatusBar,
 } from "react-native";
 
 import AuthContext from "../../contexts/auth";
@@ -75,6 +77,7 @@ function Screen() {
 
   return(
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#8257E5" />
       <ScrollView >
         <Balance/>        
 
@@ -111,7 +114,7 @@ function Screen() {
                 {list.map((item, index) => {
                   return (
                     <View style={styles.listItem} key={index}>
-                      <View style={styles.img}>
+                      <View style={styles.image}>
                         <Text>{item.image}</Text>
                       </View>
                       <View style={styles.name}>
@@ -165,12 +168,9 @@ export default function Overview() {
             alignSelf: 'center'
           },
           headerLeft: () => (
-            <TouchableOpacity
-              onPress={handleMenu}
-              style={styles.touchableLeft}
-            >
-             <FontAwesome name='bars' size={23} color='#f9f9f9'/>
-          </TouchableOpacity>
+            <View style={styles.touchLeft}>
+              <Image style={styles.img} source={require('../../assets/img/logoC.png')} />
+            </View>
           ),
           headerRight: () => (
             <TouchableOpacity

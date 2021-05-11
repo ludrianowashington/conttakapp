@@ -6,11 +6,12 @@ import {FontAwesome} from '@expo/vector-icons';
 
 import {
   FlatList,
+  Image,
   RefreshControl,
   SafeAreaView,
-   Text, 
-   TouchableOpacity,
-   View
+  Text, 
+  TouchableOpacity,
+  View
 } from 'react-native';
 
 import styles from './styles';
@@ -97,7 +98,7 @@ export default function Goals() {
       <AppStack.Screen name='Goals' 
         component={Screen}
         options={{
-          title: 'Goals',
+          title: 'Metas',
           headerStyle: {
             backgroundColor: '#8257E5',
           },
@@ -108,17 +109,15 @@ export default function Goals() {
             alignSelf: 'center'
           },
           headerLeft: () => (
-            <TouchableOpacity
-              style={styles.touchableLeft}
-            >
-          </TouchableOpacity>
+            <View style={styles.touchLeft}>
+              <Image style={styles.img} source={require('../../assets/img/logoC.png')} />
+            </View>
           ),
           headerRight: () => (
             <TouchableOpacity
-              onPress={handleSignOut}
               style={styles.touchableRight}
             >
-              <FontAwesome name='sign-out' size={23} color='#f9f9f9' />
+              <FontAwesome name='plus' size={23} color='#f9f9f9' />
           </TouchableOpacity>
           )
         }}

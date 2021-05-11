@@ -7,9 +7,15 @@ export default StyleSheet.create({
     paddingVertical: 5
   },
 
-  touchableLeft: {
-    padding: 5,  
-    marginLeft: 8,
+  image: {
+    width: 40,
+    height: 40,
+
+    marginLeft: 10,
+  },
+
+  touchLeft: {    
+    paddingLeft: 5, 
 
   },
 

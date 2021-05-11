@@ -6,9 +6,15 @@ export default StyleSheet.create({
     flex: 1
   },
 
-  touchableLeft: {
-    padding: 5,  
-    marginLeft: 8,
+  img: {
+    width: 40,
+    height: 40,
+
+    marginLeft: 10,
+  },
+
+  touchLeft: {    
+    paddingLeft: 5, 
 
   },
 
@@ -66,7 +72,7 @@ export default StyleSheet.create({
     backgroundColor: '#fff'
   },
 
-  img: {
+  image: {
     width: 60, 
     height: 60,
     

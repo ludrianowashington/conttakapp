@@ -8,6 +8,7 @@ import {
   Button,
   FlatList,
   I18nManager,
+  Image,
   RefreshControl,
   ScrollView,
   Text, 
@@ -158,19 +159,15 @@ export default function Transaction() {
             alignSelf: 'center'
           },
           headerLeft: () => (
-            <TouchableOpacity
-              onPress={handleMenu}
-              style={styles.touchableLeft}
-            >
-             <FontAwesome name='bars' size={23} color='#f9f9f9'/>
-          </TouchableOpacity>
+            <View style={styles.touchLeft}>
+              <Image style={styles.image} source={require('../../assets/img/logoC.png')} />
+            </View>
           ),
           headerRight: () => (
             <TouchableOpacity
-              onPress={handleSignOut}
               style={styles.touchableRight}
             >
-              <FontAwesome name='sign-out' size={23} color='#f9f9f9' />
+              <FontAwesome name='ellipsis-v' size={23} color='#f9f9f9' />
           </TouchableOpacity>
           )
         }}

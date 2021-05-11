@@ -5,11 +5,12 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import {FontAwesome} from '@expo/vector-icons'; 
 
 import {
+  Image,
   RefreshControl,
-   SafeAreaView,
-   Text, 
-   TouchableOpacity,
-   View
+  SafeAreaView,
+  Text, 
+  TouchableOpacity,
+  View
 } from 'react-native';
 
 import styles from './styles';
@@ -182,12 +183,9 @@ export default function Account() {
             alignSelf: 'center'
           },
           headerLeft: () => (
-            <TouchableOpacity
-              onPress={handleMenu}
-              style={styles.touchableLeft}
-            >
-             <FontAwesome name='bars' size={23} color='#f9f9f9'/>
-          </TouchableOpacity>
+            <View style={styles.touchLeft}>
+              <Image style={styles.image} source={require('../../assets/img/logoC.png')} />
+            </View>
           ),
           headerRight: () => (
             <TouchableOpacity

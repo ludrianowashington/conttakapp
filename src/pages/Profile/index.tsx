@@ -1,27 +1,50 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useCallback, useContext, useState } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 
 import {FontAwesome} from '@expo/vector-icons'; 
 
 import {
+  Image,
+  RefreshControl,
   SafeAreaView,
-   Text, 
-   TouchableOpacity,
-   View
+  ScrollView,
+  Text, 
+  TouchableOpacity,
+  View
 } from 'react-native';
+import { ProgressBar } from 'react-native-paper';
 
 import styles from './styles';
 
 import AuthContext from '../../contexts/auth';
-import { ProgressBar } from 'react-native-paper';
 
 const AppStack = createStackNavigator();
 
+const wait = (timeout: number) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+};
+
 // Component Function
 function Screen() {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+  
   return(
     <SafeAreaView style={{flex: 1}}>
-      <View style={styles.profileContainer}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl 
+            refreshing={refreshing} 
+            onRefresh={onRefresh} 
+          />}
+        style={styles.profileContainer}>
         <View style={styles.statistics}>
           <View style={styles.image}>
             <Text style={styles.letter}>LW</Text>
@@ -40,13 +63,13 @@ function Screen() {
         <View style={styles.bar}>
           <Text style={styles.value}>100</Text>
           <ProgressBar 
-            progress={0.358} 
-            color='#9480ec' 
+            progress={0.593} 
+            color='#9a89e6' 
             style={styles.progressBar}
           />
           <Text style={styles.value}>500</Text>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -63,7 +86,7 @@ export default function Profile() {
 
   return (
 
-    <AppStack.Navigator>
+    <AppStack.Navigator >
       <AppStack.Screen name='Profile' 
         component={Screen}
         options={{
@@ -78,18 +101,23 @@ export default function Profile() {
             alignSelf: 'center'
           },
           headerLeft: () => (
-            <TouchableOpacity
-              style={styles.touchableLeft}
-            >
-          </TouchableOpacity>
+            <View style={styles.touchLeft}>
+              <Image style={styles.img} source={require('../../assets/img/logoC.png')} />
+            </View>
           ),
           headerRight: () => (
-            <TouchableOpacity
-              onPress={handleSignOut}
-              style={styles.touchableRight}
-            >
-              <FontAwesome name='sign-out' size={23} color='#f9f9f9' />
-          </TouchableOpacity>
+            <View style={styles.buttonsTouch}>
+              <TouchableOpacity
+                style={styles.touchableRight}
+              >
+                <FontAwesome name='plus' size={23} color='#f9f9f9' />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.touchableRight}
+              >
+                <FontAwesome name='bars' size={23} color='#f9f9f9' />
+              </TouchableOpacity>
+            </View>
           )
         }}
         />
