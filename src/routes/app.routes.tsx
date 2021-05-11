@@ -19,7 +19,6 @@ export default function AppRoutes() {
   return(
     <Tab.Navigator
       tabBarOptions={{
-        showLabel: false,
         style: {
           justifyContent: 'space-around',
           height: 55,
@@ -54,7 +53,7 @@ export default function AppRoutes() {
         />
       
       <Tab.Screen 
-        name="Transaction" 
+        name="Transações" 
         component={Transaction} 
         options={{
           tabBarIcon: ({color, size}) => (
@@ -63,7 +62,7 @@ export default function AppRoutes() {
         }}
         />
         <Tab.Screen 
-        name="Account" 
+        name="Contas" 
         component={Account} 
         options={{
           tabBarIcon: ({color, size}) => (
@@ -72,7 +71,7 @@ export default function AppRoutes() {
         }}
         />
         <Tab.Screen 
-        name="Goals" 
+        name="Metas" 
         component={Goals} 
         options={{
           tabBarIcon: ({color, size}) => (
@@ -81,7 +80,7 @@ export default function AppRoutes() {
         }}
         />       
         <Tab.Screen 
-        name="Profile" 
+        name="Perfil" 
         component={Profile} 
         options={{
           tabBarIcon: ({color, size}) => (

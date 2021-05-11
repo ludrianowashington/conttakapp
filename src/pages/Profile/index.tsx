@@ -4,20 +4,50 @@ import { createStackNavigator } from "@react-navigation/stack";
 import {FontAwesome} from '@expo/vector-icons'; 
 
 import {
+  SafeAreaView,
    Text, 
-   TouchableOpacity
+   TouchableOpacity,
+   View
 } from 'react-native';
 
 import styles from './styles';
 
 import AuthContext from '../../contexts/auth';
+import { ProgressBar } from 'react-native-paper';
 
 const AppStack = createStackNavigator();
 
 // Component Function
 function Screen() {
   return(
-    <Text>Profile</Text>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.profileContainer}>
+        <View style={styles.statistics}>
+          <View style={styles.image}>
+            <Text style={styles.letter}>LW</Text>
+          </View>
+          <View style={styles.data}>
+            <View style={styles.dataItem}>
+              <Text style={styles.value}>310</Text>
+              <Text style={styles.title}>Pontuação</Text>
+            </View>
+            <View style={styles.dataItem}>
+              <Text style={styles.value}>3</Text>
+              <Text style={styles.title}>Nível</Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.bar}>
+          <Text style={styles.value}>100</Text>
+          <ProgressBar 
+            progress={0.358} 
+            color='#9480ec' 
+            style={styles.progressBar}
+          />
+          <Text style={styles.value}>500</Text>
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
 
@@ -26,7 +56,6 @@ function Screen() {
 export default function Profile() {
   const {signOut} = useContext(AuthContext);
 
-  function handleMenu() {}
 
   function handleSignOut() {
     signOut();
@@ -38,7 +67,7 @@ export default function Profile() {
       <AppStack.Screen name='Profile' 
         component={Screen}
         options={{
-          title: 'Profile',
+          title: 'Perfil',
           headerStyle: {
             backgroundColor: '#8257E5',
           },
@@ -50,10 +79,8 @@ export default function Profile() {
           },
           headerLeft: () => (
             <TouchableOpacity
-              onPress={handleMenu}
               style={styles.touchableLeft}
             >
-             <FontAwesome name='bars' size={23} color='#f9f9f9'/>
           </TouchableOpacity>
           ),
           headerRight: () => (
