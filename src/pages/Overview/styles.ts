@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 
 export default StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
 
   img: {
@@ -16,6 +16,13 @@ export default StyleSheet.create({
   touchLeft: {    
     paddingLeft: 5, 
 
+  },
+
+  buttonsTouch: {
+    width: 90, 
+    flexDirection: 'row', 
+
+    justifyContent: 'space-around',
   },
 
   touchableRight: { 

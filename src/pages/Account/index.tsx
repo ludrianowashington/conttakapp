@@ -189,10 +189,9 @@ export default function Account() {
           ),
           headerRight: () => (
             <TouchableOpacity
-              onPress={handleSignOut}
               style={styles.touchableRight}
             >
-              <FontAwesome name='sign-out' size={23} color='#f9f9f9' />
+              <FontAwesome name='plus' size={23} color='#f9f9f9' />
           </TouchableOpacity>
           )
         }}

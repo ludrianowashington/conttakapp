@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ScrollView } from "react-native-gesture-handler";
 import { 
@@ -8,6 +8,7 @@ import {
   TouchableOpacity, 
   SafeAreaView,
   StatusBar,
+  RefreshControl,
 } from "react-native";
 
 import AuthContext from "../../contexts/auth";
@@ -72,13 +73,31 @@ const chartConfig = {
   useShadowColorFromDataset: false // optional
 };
 
-function Screen() {
+const wait = (timeout: number) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeout);
+  });
+};
 
+function Screen() {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
 
   return(
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#8257E5" />
-      <ScrollView >
+      <ScrollView 
+      refreshControl={
+         <RefreshControl 
+         refreshing={refreshing} 
+         onRefresh={onRefresh} 
+       />}
+      >
         <Balance/>        
 
         <View style={styles.view}>
@@ -173,12 +192,18 @@ export default function Overview() {
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity
-              onPress={handleSignOut}
-              style={styles.touchableRight}
-            >
-              <FontAwesome name='sign-out' size={23} color='#f9f9f9' />
-          </TouchableOpacity>
+            <View style={styles.buttonsTouch}>
+              <TouchableOpacity
+                style={styles.touchableRight}
+              >
+                <FontAwesome name='refresh' size={23} color='#f9f9f9' />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.touchableRight}
+              >
+                <FontAwesome name='plus' size={23} color='#f9f9f9' />
+              </TouchableOpacity>
+            </View>
           )
         }}
         />

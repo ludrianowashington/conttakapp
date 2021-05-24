@@ -1,5 +1,7 @@
-  import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode, useContext, useState } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from '@react-navigation/native';
+import {RectButton, Swipeable} from 'react-native-gesture-handler';
 
 import {FontAwesome} from '@expo/vector-icons'; 
 
@@ -21,11 +23,11 @@ import styles from './styles';
 
 import AuthContext from '../../contexts/auth';
 import { list } from './list';
+import Modal from '../../components/Modal';
 
-import {RectButton, Swipeable} from 'react-native-gesture-handler';
-// import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 const AppStack = createStackNavigator();
+const RootStack = createStackNavigator();
 
 const wait = (timeout: number) => {
   return new Promise(resolve => {
@@ -35,6 +37,8 @@ const wait = (timeout: number) => {
 
 // Component Function
 function Screen() {
+  const navigation = useNavigation();
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
@@ -87,6 +91,7 @@ function Screen() {
       </TouchableOpacity>
     </>
   )
+
   return(
     <View style={styles.container}>
 
@@ -108,7 +113,9 @@ function Screen() {
             onSwipeableRightOpen={() => console.log('Opening...')}
             enableTrackpadTwoFingerGesture
             >
-              <TouchableWithoutFeedback>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Details')}
+              >
                 <View style={styles.listItem} key={index}>
                   <View style={styles.img}>
                     <Text>{item.image}</Text>
@@ -122,30 +129,37 @@ function Screen() {
                     <Text style={styles.currency}>R$ {item.value}</Text>
                   </View>
                 </View>
-              </TouchableWithoutFeedback>
+              </TouchableOpacity>
             </Swipeable>
           )}
-
+          
         />
+        
     </View>
   )
 }
 
-
-// Header Function
-export default function Transaction() {
-  const {signOut} = useContext(AuthContext);
-
-  function handleMenu() {}
-
-  function handleSignOut() {
-    signOut();
-  }
+function ModalScreen() {
+  const [modal, setModal] = useState(false);
 
   return (
+    <Modal 
+          show={modal}
+          close={()=>setModal(false)}
+          />
+  );
+}
 
+function Details(){
+  return (
+    <Text>Details</Text>
+  )
+}
+
+function MainStackScreen() {
+  return (
     <AppStack.Navigator>
-      <AppStack.Screen name='Transaction' 
+      <RootStack.Screen name='Transaction' 
         component={Screen}
         options={{
           title: 'Transações',
@@ -171,9 +185,76 @@ export default function Transaction() {
           </TouchableOpacity>
           )
         }}
-        />
+        
+      />
+      <AppStack.Screen name="Details" component={Details} />
     </AppStack.Navigator>
+  );
+}
 
+// Header Function
+export default function Transaction() {
+  const {signOut} = useContext(AuthContext);
+
+  function handleMenu() {}
+
+  function handleSignOut() {
+    signOut();
+  }
+
+  return (
+
+    <RootStack.Navigator
+      initialRouteName='Transaction'
+      mode='modal'
+      headerMode='none'
+    >
+      <RootStack.Screen name='Transaction' 
+        component={MainStackScreen}
+        options={{
+          title: 'Transações',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+            alignSelf: 'center'
+          },
+          headerLeft: () => (
+            <View style={styles.touchLeft}>
+              <Image style={styles.image} source={require('../../assets/img/logoC.png')} />
+            </View>
+          ),
+          headerRight: () => (
+            <TouchableOpacity
+              style={styles.touchableRight}
+            >
+              <FontAwesome name='ellipsis-v' size={23} color='#f9f9f9' />
+          </TouchableOpacity>
+          )
+        }}
+        
+      />
+
+      <RootStack.Screen name='Details'
+        component={Details} 
+        options={{
+          title: 'Detalhes',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+            alignSelf: 'center'
+          }
+        }}
+        />
+    </RootStack.Navigator>
+    
     
   );
 

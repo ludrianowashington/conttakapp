@@ -58,7 +58,6 @@ export default function Cards() {
           ),
           headerRight: () => (
             <TouchableOpacity
-              onPress={handleSignOut}
               style={styles.touchableRight}
             >
               <FontAwesome name='sign-out' size={23} color='#f9f9f9' />

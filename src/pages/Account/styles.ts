@@ -21,7 +21,7 @@ export default StyleSheet.create({
 
   touchableRight: { 
     padding: 5,  
-    marginRight: 8,
+    marginRight: 15,
 
   },
 
