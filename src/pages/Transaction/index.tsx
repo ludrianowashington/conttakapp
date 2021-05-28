@@ -27,7 +27,6 @@ import Modal from '../../components/Modal';
 
 
 const AppStack = createStackNavigator();
-const RootStack = createStackNavigator();
 
 const wait = (timeout: number) => {
   return new Promise(resolve => {
@@ -74,6 +73,7 @@ function Screen() {
 
     return _swipeableRow;
   };
+
   const close = () => {
     close();
   };
@@ -92,7 +92,7 @@ function Screen() {
     </>
   )
 
-  return(
+  return (
     <View style={styles.container}>
 
       <View style={styles.date}>
@@ -139,27 +139,50 @@ function Screen() {
   )
 }
 
-function ModalScreen() {
-  const [modal, setModal] = useState(false);
-
-  return (
-    <Modal 
-          show={modal}
-          close={()=>setModal(false)}
-          />
-  );
-}
-
 function Details(){
   return (
-    <Text>Details</Text>
+    <View style={styles.dtContainer}>
+      <View style={styles.dtHeader}>
+        <View style={styles.dtImage}>
+          <Text>VW</Text>
+        </View>
+
+        <Text style={styles.dtValue}>R$ 182,35</Text>
+
+        <View>
+          <FontAwesome name='thumbs-up' size={28}/>
+        </View>
+      </View>
+      <Text>Descrição</Text>
+      <Text>Situação</Text>
+      <Text>Data da efetivação</Text>
+      <Text>Recorrencia</Text>
+      <Text>Conta</Text>
+      <Text>Categoria</Text>
+      <Text>Lembrete</Text>
+      <Text>Receita Fixa</Text>
+      <Text>Tags</Text>
+      <Text>Observação</Text>
+      <Text>Anexo</Text>
+
+    </View>      
   )
 }
 
-function MainStackScreen() {
+// Header Function
+export default function Transaction() {
+  const {signOut} = useContext(AuthContext);
+
+  function handleMenu() {}
+
+  function handleSignOut() {
+    signOut();
+  }
+
   return (
-    <AppStack.Navigator>
-      <RootStack.Screen name='Transaction' 
+
+    <AppStack.Navigator initialRouteName='Transaction'>
+      <AppStack.Screen name='Transaction' 
         component={Screen}
         options={{
           title: 'Transações',
@@ -178,68 +201,17 @@ function MainStackScreen() {
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity
-              style={styles.touchableRight}
-            >
+            <TouchableOpacity style={styles.touchableRight}>
               <FontAwesome name='ellipsis-v' size={23} color='#f9f9f9' />
-          </TouchableOpacity>
-          )
-        }}
-        
-      />
-      <AppStack.Screen name="Details" component={Details} />
-    </AppStack.Navigator>
-  );
-}
-
-// Header Function
-export default function Transaction() {
-  const {signOut} = useContext(AuthContext);
-
-  function handleMenu() {}
-
-  function handleSignOut() {
-    signOut();
-  }
-
-  return (
-
-    <RootStack.Navigator
-      initialRouteName='Transaction'
-      mode='modal'
-      headerMode='none'
-    >
-      <RootStack.Screen name='Transaction' 
-        component={MainStackScreen}
-        options={{
-          title: 'Transações',
-          headerStyle: {
-            backgroundColor: '#8257E5',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontSize: 13,
-            fontFamily: 'Archivo_700Bold',
-            alignSelf: 'center'
-          },
-          headerLeft: () => (
-            <View style={styles.touchLeft}>
-              <Image style={styles.image} source={require('../../assets/img/logoC.png')} />
-            </View>
-          ),
-          headerRight: () => (
-            <TouchableOpacity
-              style={styles.touchableRight}
-            >
-              <FontAwesome name='ellipsis-v' size={23} color='#f9f9f9' />
-          </TouchableOpacity>
+            </TouchableOpacity>
           )
         }}
         
       />
 
-      <RootStack.Screen name='Details'
-        component={Details} 
+      <AppStack.Screen 
+        name='Details'
+        component={Details}
         options={{
           title: 'Detalhes',
           headerStyle: {
@@ -249,11 +221,10 @@ export default function Transaction() {
           headerTitleStyle: {
             fontSize: 13,
             fontFamily: 'Archivo_700Bold',
-            alignSelf: 'center'
           }
         }}
-        />
-    </RootStack.Navigator>
+      />
+    </AppStack.Navigator>
     
     
   );

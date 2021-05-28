@@ -1,3 +1,4 @@
+import { Poppins_100Thin } from '@expo-google-fonts/poppins';
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
@@ -101,5 +102,43 @@ export default StyleSheet.create({
 
   leftAction: {},
 
-  actionText: {}
+  actionText: {},
+
+  dtContainer:{
+    flex: 1,
+    
+    paddingHorizontal: 10
+  }, 
+  
+  dtHeader: {
+    flexDirection: 'row', 
+
+    alignItems: 'center', 
+    justifyContent: 'space-around',
+
+    height: 120,
+    paddingHorizontal: 20,
+    
+  }, 
+  
+  dtImage:{
+    width: 70, 
+    height: 70,
+    
+    marginTop: 18,
+    
+    borderRadius: 50,
+
+    alignItems: 'center', 
+    justifyContent: 'center',
+    
+    backgroundColor: '#a1d53e'
+        
+  }, 
+  
+  dtValue: {
+    fontSize: 30, 
+
+    fontWeight: 'bold'
+  }
 })
