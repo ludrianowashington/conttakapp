@@ -147,23 +147,74 @@ function Details(){
           <Text>VW</Text>
         </View>
 
-        <Text style={styles.dtValue}>R$ 182,35</Text>
+        <Text style={styles.dtValue}>R$ 82,35</Text>
 
         <View>
           <FontAwesome name='thumbs-up' size={28}/>
         </View>
       </View>
-      <Text>Descrição</Text>
-      <Text>Situação</Text>
-      <Text>Data da efetivação</Text>
-      <Text>Recorrencia</Text>
-      <Text>Conta</Text>
-      <Text>Categoria</Text>
-      <Text>Lembrete</Text>
-      <Text>Receita Fixa</Text>
-      <Text>Tags</Text>
-      <Text>Observação</Text>
-      <Text>Anexo</Text>
+      <View style={styles.dtBody}>
+        <View style={styles.dtSituation}>
+          <View style={styles.dtContent}>
+            <Text style={styles.dtTextCaps}>Descrição:</Text>
+            <Text style={styles.dtTextDescr}>Netflix</Text>
+          </View>
+          <View style={styles.dtContent}>
+            <Text style={styles.dtTextCaps}>Pago:</Text>
+            <Text style={styles.dtTextDescr}>Sim</Text>
+          </View>
+        </View>
+        <View style={styles.colContent}>
+          <View style={styles.dtColContent}>
+            <Text style={styles.dtTextCaps}>Data de lançamento:</Text>
+            <Text style={styles.dtTextDescr}>05/05/2021</Text>
+          </View>
+          <View style={styles.dtColContent}>
+            <Text style={styles.dtTextCaps}>Data de vencimento:</Text>
+            <Text style={styles.dtTextDescr}>15/05/2021</Text>
+          </View>
+          <View style={styles.dtColContent}>
+            <Text style={styles.dtTextCaps}>Data de pagamento:</Text>
+            <Text style={styles.dtTextDescr}>14/05/2021</Text>
+          </View>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Conta:</Text>
+          <Text style={styles.dtTextDescr}>Cartão Credz</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Categoria:</Text>
+          <Text style={styles.dtTextDescr}>Outros</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Lembrete:</Text>
+          <Text style={styles.dtTextDescr}>Nenhum</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Recorrencia Fixa:</Text>
+          <Text style={styles.dtTextDescr}>Sim</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Repetir:</Text>
+          <Text style={styles.dtTextDescr}>3 x R$12,34/mês</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Tags:</Text>
+          <Text style={styles.dtTextDescr}>Nenhum</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Observação:</Text>
+          <Text style={styles.dtTextDescr}>-</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.dtTextCaps}>Anexo:</Text>
+          <Text style={styles.dtTextDescr}>Nenhum</Text>
+        </View>
+      </View>
+      <View style={styles.contentButton}>
+        <TouchableOpacity style={styles.dtbutton}><Text style={styles.dtButtonText}>Editar</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.dtbutton}><Text style={styles.dtButtonText}>Cancelar</Text></TouchableOpacity>
+      </View>
 
     </View>      
   )
