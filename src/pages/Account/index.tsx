@@ -1,6 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useNavigation } from '@react-navigation/native';
 
 import {FontAwesome} from '@expo/vector-icons'; 
 
@@ -8,6 +9,7 @@ import {
   Image,
   RefreshControl,
   SafeAreaView,
+  ScrollView,
   Text, 
   TouchableOpacity,
   View
@@ -38,6 +40,8 @@ function FirstScreen() {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
+  const navigation = useNavigation();
+
   return(
     // <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -46,7 +50,9 @@ function FirstScreen() {
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           keyExtractor={item => String(item.id)}
           renderItem={({item, index})=>(
-            <TouchableOpacity >
+            <TouchableOpacity 
+             onPress={()=> navigation.navigate('BankDetails')}
+            >
               <View style={styles.listItem} key={index}>
                 <View style={styles.img}>
                   <Text>{item.image}</Text>
@@ -96,7 +102,9 @@ function SecondScreen() {
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           keyExtractor={item => String(item.id)}
           renderItem={({item, index})=>(
-            <TouchableOpacity >
+            <TouchableOpacity 
+              
+            >
               <View style={styles.listItem} key={index}>
                 <View style={styles.img}>
                   <Text>{item.image}</Text>
@@ -113,6 +121,76 @@ function SecondScreen() {
         />
       </View>
     </SafeAreaView>
+  )
+}
+
+//Function Account Details
+function BankDetails() {
+  return (
+    <ScrollView style={styles.bnkContainer}>
+      <View style={styles.bnkHeader}>
+        <View style={styles.bnkAvatar}>
+          <Text style={styles.bnkAvatarText}>A</Text>
+        </View>
+        <View style={styles.bnkTitle}>
+          <Text style={styles.bnkTitleText}>Minha Carteira</Text>
+          {/* <Text style={styles.bnkTitleBtn}>E</Text> */}
+        </View>
+      </View>
+      <View style={styles.bnkBody}>
+        <View style={styles.bnkBodyContent}>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Inicial:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 112,32</Text>
+          </View>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Atual:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 512,32</Text>
+          </View>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Previsto:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 102,32</Text>
+          </View>
+          
+          <View style={styles.bnkBodyItemsData}>
+            <Text style={styles.bnkBodyText}>Dados Adicionais</Text>
+            <Text style={styles.bnkBodyTextItem}>Nenhum</Text>
+          </View>
+          <View style={styles.bnkBodyList}>
+            <Text style={styles.bnkBodyListTitle}>Últimas Transações</Text>
+            <View style={styles.bnkBodyListContent}>
+                <View style={styles.bnklistItem}>
+                  <View style={styles.bnkImg}>
+                    <Text>M</Text>
+                  </View>
+                  <View style={styles.bnkListName}>
+                    <Text style={styles.bnkTitleItem}>Netflix</Text>
+                    <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
+                  </View>
+                  <View style={styles.bnkValue}>
+                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  </View>
+                </View>
+                <View style={styles.bnklistItem}>
+                  <View style={styles.bnkImg}>
+                    <Text>M</Text>
+                  </View>
+                  <View style={styles.bnkListName}>
+                    <Text style={styles.bnkTitleItem}>Netflix</Text>
+                    <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
+                  </View>
+                  <View style={styles.bnkValue}>
+                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  </View>
+                </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      
+    </ScrollView>
   )
 }
 
@@ -196,6 +274,39 @@ export default function Account() {
           )
         }}
         />
+
+      <AppStack.Screen 
+        name='BankDetails'
+        component={BankDetails}
+        options={{
+          title: 'Detalhes',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+          }
+        }}
+      />
+
+      <AppStack.Screen 
+        name='CardsDetails'
+        component={BankDetails}
+        options={{
+          title: 'Detalhes',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+          }
+        }}
+      />
+      
     </AppStack.Navigator>
 
     

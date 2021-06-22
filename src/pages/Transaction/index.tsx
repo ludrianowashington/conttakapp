@@ -140,6 +140,10 @@ function Screen() {
 }
 
 function Details(){
+
+  const navigation = useNavigation();
+  
+
   return (
     <View style={styles.dtContainer}>
       <View style={styles.dtHeader}>
@@ -212,8 +216,14 @@ function Details(){
         </View>
       </View>
       <View style={styles.contentButton}>
-        <TouchableOpacity style={styles.dtbutton}><Text style={styles.dtButtonText}>Editar</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.dtbutton}><Text style={styles.dtButtonText}>Cancelar</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.dtbutton}>
+          <Text style={styles.dtButtonText}>Editar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.dtbutton}
+          onPress={()=> navigation.goBack()}>
+          <Text style={styles.dtButtonText}>Cancelar</Text>
+        </TouchableOpacity>
       </View>
 
     </View>      
@@ -224,7 +234,9 @@ function Details(){
 export default function Transaction() {
   const {signOut} = useContext(AuthContext);
 
-  function handleMenu() {}
+  function handleCancel() {
+
+  }
 
   function handleSignOut() {
     signOut();

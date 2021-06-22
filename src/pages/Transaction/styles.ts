@@ -196,12 +196,14 @@ export default StyleSheet.create({
     paddingHorizontal: 12, 
     paddingVertical: 4,
     
+    marginHorizontal: 4,
+
     alignItems: 'center',
     justifyContent: 'center',
 
     backgroundColor: "#9393d3",
 
-    borderRadius: 50
+    borderRadius: 10
   }, 
   
   dtButtonText: {
