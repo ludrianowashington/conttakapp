@@ -277,5 +277,13 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
 
-  bnkFooter: {}
+  bnkFooter: {
+    flexDirection: 'row'
+  }, 
+
+  bnkFooterBtn: {
+    
+  },
+
+  bnkFooterBtnText: {}
 })

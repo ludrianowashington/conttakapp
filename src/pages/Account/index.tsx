@@ -159,33 +159,41 @@ function BankDetails() {
           <View style={styles.bnkBodyList}>
             <Text style={styles.bnkBodyListTitle}>Últimas Transações</Text>
             <View style={styles.bnkBodyListContent}>
-                <View style={styles.bnklistItem}>
-                  <View style={styles.bnkImg}>
-                    <Text>M</Text>
-                  </View>
-                  <View style={styles.bnkListName}>
-                    <Text style={styles.bnkTitleItem}>Netflix</Text>
-                    <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
-                  </View>
-                  <View style={styles.bnkValue}>
-                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
-                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
-                  </View>
+              <View style={styles.bnklistItem}>
+                <View style={styles.bnkImg}>
+                  <Text>M</Text>
                 </View>
-                <View style={styles.bnklistItem}>
-                  <View style={styles.bnkImg}>
-                    <Text>M</Text>
-                  </View>
-                  <View style={styles.bnkListName}>
-                    <Text style={styles.bnkTitleItem}>Netflix</Text>
-                    <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
-                  </View>
-                  <View style={styles.bnkValue}>
-                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
-                    <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
-                  </View>
+                <View style={styles.bnkListName}>
+                  <Text style={styles.bnkTitleItem}>Netflix</Text>
+                  <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
                 </View>
+                <View style={styles.bnkValue}>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                </View>
+              </View>
+              <View style={styles.bnklistItem}>
+                <View style={styles.bnkImg}>
+                  <Text>M</Text>
+                </View>
+                <View style={styles.bnkListName}>
+                  <Text style={styles.bnkTitleItem}>Netflix</Text>
+                  <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
+                </View>
+                <View style={styles.bnkValue}>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                </View>
+              </View>
             </View>
+          </View>
+          <View style={styles.bnkFooter}>
+            <TouchableOpacity style={styles.bnkFooterBtn}>
+              <Text style={styles.bnkFooterBtnText}>Editar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bnkFooterBtn}>
+              <Text style={styles.bnkFooterBtnText}>Cancelar</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
