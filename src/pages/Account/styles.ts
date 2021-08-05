@@ -282,8 +282,23 @@ export default StyleSheet.create({
   }, 
 
   bnkFooterBtn: {
+    flex: 1,
+    paddingHorizontal: 12, 
+    paddingVertical: 14,
     
+    marginHorizontal: 4,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    backgroundColor: "#9393d3",
+
+    borderRadius: 10  
   },
 
-  bnkFooterBtnText: {}
+  bnkFooterBtnText: {
+    fontSize: 18, 
+    
+    color: '#fff'
+  }
 })

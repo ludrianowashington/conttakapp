@@ -9,6 +9,7 @@ import {
   Image,
   RefreshControl,
   SafeAreaView,
+  ScrollView,
   Text, 
   TouchableOpacity,
   View
@@ -129,3 +130,79 @@ export default function Goals() {
 
 };
 
+function GoalsDetails() {
+  return (
+    <ScrollView style={styles.bnkContainer}>
+      <View style={styles.bnkHeader}>
+        <View style={styles.bnkAvatar}>
+          <Text style={styles.bnkAvatarText}>A</Text>
+        </View>
+        <View style={styles.bnkTitle}>
+          <Text style={styles.bnkTitleText}>Minha Carteira</Text>
+          {/* <Text style={styles.bnkTitleBtn}>E</Text> */}
+        </View>
+      </View>
+      <View style={styles.bnkBody}>
+        <View style={styles.bnkBodyContent}>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Inicial:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 112,32</Text>
+          </View>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Atual:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 512,32</Text>
+          </View>
+          <View style={styles.bnkBodyItems}>
+            <Text style={styles.bnkBodyText}>Saldo Previsto:</Text>
+            <Text style={styles.bnkBodyTextValue}>R$ 102,32</Text>
+          </View>
+          
+          <View style={styles.bnkBodyItemsData}>
+            <Text style={styles.bnkBodyText}>Dados Adicionais</Text>
+            <Text style={styles.bnkBodyTextItem}>Nenhum</Text>
+          </View>
+          <View style={styles.bnkBodyList}>
+            <Text style={styles.bnkBodyListTitle}>Últimas Transações</Text>
+            <View style={styles.bnkBodyListContent}>
+              <View style={styles.bnklistItem}>
+                <View style={styles.bnkImg}>
+                  <Text>M</Text>
+                </View>
+                <View style={styles.bnkListName}>
+                  <Text style={styles.bnkTitleItem}>Netflix</Text>
+                  <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
+                </View>
+                <View style={styles.bnkValue}>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                </View>
+              </View>
+              <View style={styles.bnklistItem}>
+                <View style={styles.bnkImg}>
+                  <Text>M</Text>
+                </View>
+                <View style={styles.bnkListName}>
+                  <Text style={styles.bnkTitleItem}>Netflix</Text>
+                  <Text style={styles.bnkDateItem}>Jun 12, 2021</Text>
+                </View>
+                <View style={styles.bnkValue}>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                  <Text style={styles.bnkCurrency}>R$ R$ -24,12</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={styles.bnkFooter}>
+            <TouchableOpacity style={styles.bnkFooterBtn}>
+              <Text style={styles.bnkFooterBtnText}>Editar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bnkFooterBtn}>
+              <Text style={styles.bnkFooterBtnText}>Cancelar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+      
+    </ScrollView>
+  )
+}

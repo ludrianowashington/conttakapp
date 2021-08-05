@@ -126,6 +126,9 @@ function SecondScreen() {
 
 //Function Account Details
 function BankDetails() {
+
+  const navigation = useNavigation();
+    
   return (
     <ScrollView style={styles.bnkContainer}>
       <View style={styles.bnkHeader}>
@@ -191,7 +194,9 @@ function BankDetails() {
             <TouchableOpacity style={styles.bnkFooterBtn}>
               <Text style={styles.bnkFooterBtnText}>Editar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.bnkFooterBtn}>
+            <TouchableOpacity 
+              style={styles.bnkFooterBtn}
+              onPress={()=> navigation.goBack()}>
               <Text style={styles.bnkFooterBtnText}>Cancelar</Text>
             </TouchableOpacity>
           </View>

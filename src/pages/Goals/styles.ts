@@ -81,5 +81,189 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
+  bnkContainer: {
+    paddingTop: 5,
+    paddingHorizontal: 8,
+
+  }, 
   
+  bnkHeader: {
+    marginBottom: 16,
+    
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  
+  bnkAvatar: {
+    width: 100,
+    height: 100,
+    
+    borderRadius: 100,
+    
+    alignItems: 'center', 
+    justifyContent: 'center',
+    
+    marginTop: 13,
+    
+    backgroundColor: '#7778a5'
+  }, 
+
+  bnkAvatarText: {
+    fontSize: 40,
+
+    color: '#fff'
+  },
+
+  bnkTitle: {
+    alignItems: 'center',
+        
+    paddingTop: 12
+  }, 
+  
+  bnkTitleText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+
+    color: '#77f'
+  }, 
+
+  bnkTitleValue: {
+    fontSize: 18,
+
+    color: '#828282'
+  }, 
+
+  bnkBody: {}, 
+
+  bnkBodyContent: {},
+
+  bnkBodyItems: {
+    marginBottom: 8, 
+
+    justifyContent: 'space-between',
+    
+    flexDirection: 'row'
+  },
+
+  bnkBodyItemsData: {
+    marginBottom: 8
+  },
+
+  bnkBodyText: {
+    fontSize: 18,
+    fontWeight: 'bold', 
+
+    color: '#76c'
+  },
+
+  bnkBodyTextItem: {
+    height: 50,
+
+    fontSize: 15,
+
+    paddingHorizontal: 4,
+    
+    color: '#777'
+  },
+
+  bnkBodyTextValue: {
+    fontSize: 16,
+
+    color: '#333'
+  },
+
+  bnkBodyList: {
+    paddingTop: 5,
+  },
+
+  bnkBodyListTitle: {
+    marginBottom: 4,
+    
+    fontSize: 19, 
+    fontWeight: 'bold',
+
+    color: '#44a'
+  },
+
+  bnkBodyListContent: {
+    paddingTop: 4,
+    paddingHorizontal: 5
+  },
+
+  bnklistItem: {
+    paddingHorizontal: 10, 
+    paddingVertical: 6,
+
+    marginBottom: 1,
+
+    flexDirection: 'row',
+
+    alignItems: 'center',
+
+    backgroundColor: '#eee'
+  },
+  
+  bnkImg: {
+    width: 70, 
+    height: 70,
+    
+    
+    borderRadius: 50,
+    
+    alignItems: 'center', 
+    justifyContent: 'center',
+    
+    backgroundColor: '#a1d53e'
+  },
+
+  bnkListName: {
+    flex: 1,
+
+    paddingLeft: 20,
+  }, 
+
+  bnkTitleItem: {
+    fontSize: 18, 
+    fontWeight: 'bold',
+  }, 
+
+  bnkDateItem: {
+    color: '#a5a5a5'
+  },
+
+  bnkValue: {
+    width: 120,
+
+    alignItems: 'flex-end',
+  }, 
+
+  bnkCurrency: {
+    fontSize: 16,
+    fontWeight: 'bold'
+  },
+
+  bnkFooter: {
+    flexDirection: 'row'
+  }, 
+
+  bnkFooterBtn: {
+    flex: 1,
+    paddingHorizontal: 12, 
+    paddingVertical: 14,
+    
+    marginHorizontal: 4,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    backgroundColor: "#9393d3",
+
+    borderRadius: 10  
+  },
+
+  bnkFooterBtnText: {
+    fontSize: 18, 
+    
+    color: '#fff'
+  }
 })
