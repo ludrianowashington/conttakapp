@@ -11,9 +11,12 @@ import {
   RefreshControl,
 } from "react-native";
 
+import {useNavigation} from '@react-navigation/native';
+
 import AuthContext from "../../contexts/auth";
 
-import Balance from '../../components/Balance'
+import Balance from '../../components/Balance';
+import Entry from "../Entry";
 
 import {FontAwesome} from '@expo/vector-icons'
 
@@ -162,6 +165,8 @@ function Screen() {
 
 export default function Overview() {
 
+  const navigation = useNavigation();
+
   const {signOut} = useContext(AuthContext);
 
   function handleMenu() {}
@@ -200,12 +205,29 @@ export default function Overview() {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.touchableRight}
+                onPress={()=> navigation.navigate('Entry')}
               >
                 <FontAwesome name='plus' size={23} color='#f9f9f9' />
               </TouchableOpacity>
             </View>
           )
         }}
+        />
+
+        <AppStack.Screen
+          name="Entry"
+          component={Entry}
+          options={{
+            title: 'Entrada',
+            headerStyle: {
+              backgroundColor: '#8257E5',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontSize: 13,
+              fontFamily: 'Archivo_700Bold',
+            }
+          }}
         />
     </AppStack.Navigator>
 

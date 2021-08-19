@@ -19,7 +19,7 @@ import styles from "./styles";
 
 import AuthContext from "../../contexts/auth";
 import { list , transactions } from "./list";
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/native";
 import App from "../../../App";
 
 const AppStack = createStackNavigator();
