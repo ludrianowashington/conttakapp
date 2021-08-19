@@ -81,20 +81,21 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
 
-  bnkContainer: {
+  // Details Goals  
+  GlContainer: {
     paddingTop: 5,
     paddingHorizontal: 8,
 
   }, 
   
-  bnkHeader: {
+  glHeader: {
     marginBottom: 16,
     
     flexDirection: 'column',
     alignItems: 'center',
   },
   
-  bnkAvatar: {
+  glPerc: {
     width: 100,
     height: 100,
     
@@ -108,162 +109,124 @@ export default StyleSheet.create({
     backgroundColor: '#7778a5'
   }, 
 
-  bnkAvatarText: {
-    fontSize: 40,
+  glPercText: {
+    fontSize: 30,
 
     color: '#fff'
   },
 
-  bnkTitle: {
+  glTitle: {
     alignItems: 'center',
         
     paddingTop: 12
   }, 
-  
-  bnkTitleText: {
+
+  glTitleText: {
     fontSize: 25,
     fontWeight: 'bold',
 
     color: '#77f'
-  }, 
-
-  bnkTitleValue: {
-    fontSize: 18,
-
-    color: '#828282'
-  }, 
-
-  bnkBody: {}, 
-
-  bnkBodyContent: {},
-
-  bnkBodyItems: {
-    marginBottom: 8, 
-
-    justifyContent: 'space-between',
-    
-    flexDirection: 'row'
   },
+  
+  glValue: {
+    marginTop: 10, 
 
-  bnkBodyItemsData: {
-    marginBottom: 8
+    paddingLeft: 18,
+    paddingHorizontal: 10
   },
-
-  bnkBodyText: {
-    fontSize: 18,
-    fontWeight: 'bold', 
-
-    color: '#76c'
-  },
-
-  bnkBodyTextItem: {
-    height: 50,
-
-    fontSize: 15,
-
-    paddingHorizontal: 4,
-    
-    color: '#777'
-  },
-
-  bnkBodyTextValue: {
+  
+  glValueText: {
     fontSize: 16,
 
-    color: '#333'
+    color: '#5f5f5f'
+  },
+  
+  glValueCurrency: {
+    fontSize: 22, 
+    fontWeight: 'bold', 
+
+    color: '#6f6f6f'
   },
 
-  bnkBodyList: {
-    paddingTop: 5,
+
+  glBody: {
+    flex: 1, 
+
+    marginTop: 30,
+
+    borderRadius: 10,
+
+    backgroundColor: '#d8d8d8'
+  }, 
+
+  glBodyTitle: {
+    paddingVertical: 10,
+    paddingHorizontal: 19, 
+
   },
 
-  bnkBodyListTitle: {
-    marginBottom: 4,
-    
-    fontSize: 19, 
-    fontWeight: 'bold',
+  glBodyTitleText: {
+    fontSize: 20,
+    fontWeight: 'bold', 
 
-    color: '#44a'
+    color: '#77f'
   },
 
-  bnkBodyListContent: {
-    paddingTop: 4,
-    paddingHorizontal: 5
+  glList: {
+    paddingHorizontal: 8, 
+
+    height: 400
   },
 
-  bnklistItem: {
-    paddingHorizontal: 10, 
-    paddingVertical: 6,
+  glListItem: {
+    padding: 8,
 
-    marginBottom: 1,
+    marginBottom: 5,
+
+    borderRadius: 10,
 
     flexDirection: 'row',
 
-    alignItems: 'center',
-
-    backgroundColor: '#eee'
+    backgroundColor: '#e2e5ef'
   },
-  
-  bnkImg: {
-    width: 70, 
-    height: 70,
-    
+
+  glImage: {
+    width: 60, 
+    height: 60,
     
     borderRadius: 50,
-    
+
     alignItems: 'center', 
     justifyContent: 'center',
-    
-    backgroundColor: '#a1d53e'
-  },
 
-  bnkListName: {
+    backgroundColor: '#9a9a9a'
+  }, 
+
+  name: {
     flex: 1,
 
     paddingLeft: 20,
-  }, 
+  },
 
-  bnkTitleItem: {
+  titleItem: {
     fontSize: 18, 
     fontWeight: 'bold',
   }, 
 
-  bnkDateItem: {
+  dateItem: {
     color: '#a5a5a5'
-  },
+  }, 
 
-  bnkValue: {
+  value: {
     width: 120,
 
     alignItems: 'flex-end',
   }, 
 
-  bnkCurrency: {
+  currency: {
     fontSize: 16,
     fontWeight: 'bold'
   },
 
-  bnkFooter: {
-    flexDirection: 'row'
-  }, 
 
-  bnkFooterBtn: {
-    flex: 1,
-    paddingHorizontal: 12, 
-    paddingVertical: 14,
-    
-    marginHorizontal: 4,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: "#9393d3",
-
-    borderRadius: 10  
-  },
-
-  bnkFooterBtnText: {
-    fontSize: 18, 
-    
-    color: '#fff'
-  }
 })
