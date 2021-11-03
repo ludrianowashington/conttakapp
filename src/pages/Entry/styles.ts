@@ -3,24 +3,59 @@ import {StyleSheet} from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1, 
-    padding: 7
   },
 
-  img: {
-    width: 40,
-    height: 40,
+  view: {
+    flex: 1,
+    height: 150, 
 
-    marginLeft: 10,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 
-  touchLeft: {    
-    paddingLeft: 5, 
-
+  display: {
+    flex: 1,
+    flexDirection: 'row', 
+    alignContent: 'center', 
+    backgroundColor: '#B3BAD5',
   },
 
-  touchableRight: { 
-    padding: 5,  
-    marginRight: 8,
-
+  inputText: {
+    flex: 1,
+    height: 90,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    backgroundColor: '#B3BAD5',
+    alignSelf: 'center',
+    textAlign: 'right',
+    justifyContent: 'flex-end',
+    marginBottom: 15,
+    marginHorizontal: 20,
+    fontSize: 40, 
+    color: '#8175BA'
   },
+
+  buttonGroupContainer: {
+    height: 50, 
+    marginHorizontal:0, 
+    marginVertical: 0,
+    borderWidth: 0
+  },
+
+  button: {
+    backgroundColor: '#8175BA'
+  },
+
+  buttonGroup: {
+    backgroundColor: '#C3CAD5'
+  },
+
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    color: '#8a8a8a'
+  },
+
+
 })
