@@ -13,7 +13,7 @@ Este projeto visa auxiliar pessoas a ter o controle sobre suas finanças, amplia
 
 Caso queira ver este projeto em funcionamento, [clique aqui](https://expo.dev/client) e baixe o aplicativo da Expo no seu smartphone.
 
-Em seguida, abra o app e escaneie o QR Code [neste link](exp://exp.host/@ludriano/conttak). 
+Em seguida, abra o app e escaneie o QR Code [neste link](https://expo.dev/@ludriano/conttak). 
 
 Use estas credenciais para ter acesso ao aplicativo.
 `Login: ludriano.washi@gmail.com` e
