@@ -25,15 +25,18 @@ const AppStack = createStackNavigator();
 
 
 export default function Entry() {
-  const buttons = ['Despesa', 'Receita', 'Tranferência'];
+  const buttons = ['Receita', 'Despesa', 'Transferência'];
 
-  const [selectedItem, setSelectedItem] = useState(0)
-  const [inputValue, setInputValue] = useState('0,00')
+  const [selectedItem, setSelectedItem] = useState(0);
+  const [inputValue, setInputValue] = useState('');
 
   const iconSelect = (selectedItem: number) => {
-    if (selectedItem === 0) return <FontAwesome name='plus' size={19} color='#8175BA' />
-    if (selectedItem === 1) return <FontAwesome name='minus' size={19} color='#8175BA' />
-    if (selectedItem === 2) return <FontAwesome name='exchange' size={19} color='#8175BA' />
+    const size = 30;
+    const color = '#8175BA';
+
+    if (selectedItem === 0) return <FontAwesome name='plus' size={size} color={color} />
+    if (selectedItem === 1) return <FontAwesome name='minus' size={size} color={color} />
+    if (selectedItem === 2) return <FontAwesome name='exchange' size={size} color={color} />
   }
 
   function formatValue(value: any) {
@@ -43,27 +46,22 @@ export default function Entry() {
     val = parseInt(val.replace(/[\D]+/g, ''));
     val = val + '';
 
-    val = val.replace(/\D/g, "") // permite digitar apenas numero
-    val = val.replace(/(\d{1})(\d{14})$/, "$1.$2") // coloca ponto antes dos ultimos digitos
-    val = val.replace(/(\d{1})(\d{11})$/, "$1.$2") // coloca ponto antes dos ultimos 11 digitos
-    val = val.replace(/(\d{1})(\d{8})$/, "$1.$2") // coloca ponto antes dos ultimos 8 digitos
-    val = val.replace(/(\d{1})(\d{5})$/, "$1.$2") // coloca ponto antes dos ultimos 5 digitos
-    val = val.replace(/(\d{1})(\d{1,2})$/, "$1,$2") // coloca virgula antes dos ultimos 2 digitos
+    if (val.length < 2) {
+      return val.replace(/([0-9]{1})/g, "0,0$1");
 
-    // if (val.length < 2) {
-    //   return val.replace(/([0-9]{1})/g, "0,0$1");
-    // }
-    // if (val.length == 2) {
-    //   return val.replace(/([0-9]{2})/g, "0,$1")
-    // }
+    }
 
-    // val = val.replace(/([0-9]{2})$/g, ",$1");
+    if (val.length == 2) {
+      return val.replace(/([0-9]{2})/g, "0,$1")
+    }
 
-    // if (val.length > 6) {
-    //   return val.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-    // }
+    val = val.replace(/([0-9]{1})([0-9]{14})$/, "$1.$2") // insert dot before the last digits
+    val = val.replace(/([0-9]{1})([0-9]{11})$/, "$1.$2") // insert dot before the last 11 digits
+    val = val.replace(/([0-9]{1})([0-9]{8})$/, "$1.$2") // insert dot before the last 8 digits
+    val = val.replace(/([0-9]{1})([0-9]{5})$/, "$1.$2") // insert dot before the last 5 digits
+    val = val.replace(/([0-9]{1})([0-9]{1,2})$/, "$1,$2") // insert comma before the last 2 digits
 
-    if (isNaN(val)) return val.replace("0,00");
+    if (isNaN(val)) return val.replace("0,00"); //
 
     return val;
   }
@@ -82,16 +80,21 @@ export default function Entry() {
         />
 
         <View style={styles.display}>
-          {iconSelect(selectedItem)}
+          <View style={styles.icons}>
+            {iconSelect(selectedItem)}
+          </View>
           <TextInput
             style={styles.inputText}
             value={inputValue}
             onChangeText={e => setInputValue(formatValue(e))}
-            placeholder='0.00'
+            placeholder='0,00'
             placeholderTextColor='#8175BA'
             keyboardType='number-pad'
           />
         </View>
+      </View>
+      <View style={styles.viewInputs}>
+
       </View>
     </ScrollView>
 
