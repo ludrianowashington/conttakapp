@@ -1,5 +1,5 @@
 import { Poppins_100Thin, Poppins_200ExtraLight } from '@expo-google-fonts/poppins';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -13,24 +13,24 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
 
-  touchLeft: {    
-    paddingLeft: 5, 
+  touchLeft: {
+    paddingLeft: 5,
 
   },
 
-  touchableRight: { 
-    padding: 5,  
-    marginRight: 8,
+  touchableRight: {
+    padding: 5,
+    marginRight: 12,
 
   },
 
-  text: { 
-    alignSelf: 'center', 
+  text: {
+    alignSelf: 'center',
     color: '#f9f9f9'
   },
 
   listItem: {
-    paddingHorizontal: 10, 
+    paddingHorizontal: 10,
     paddingVertical: 6,
 
     marginBottom: 1,
@@ -43,47 +43,47 @@ export default StyleSheet.create({
   },
 
   img: {
-    width: 60, 
+    width: 60,
     height: 60,
-    
+
     borderRadius: 50,
 
-    alignItems: 'center', 
+    alignItems: 'center',
     justifyContent: 'center',
 
     backgroundColor: '#9a9a9a'
-  }, 
+  },
 
   name: {
     flex: 1,
 
     paddingLeft: 20,
   },
-  
+
   titleItem: {
-    fontSize: 18, 
+    fontSize: 18,
     fontWeight: 'bold',
-  }, 
+  },
 
   dateItem: {
     color: '#a5a5a5'
-  }, 
+  },
 
   value: {
     width: 120,
 
     alignItems: 'flex-end',
-  }, 
+  },
 
   currency: {
     fontSize: 16,
     fontWeight: 'bold'
-  },   
+  },
 
   date: {},
 
   scrollView: {},
-  
+
   rightAction: {
     width: 60,
 
@@ -95,60 +95,60 @@ export default StyleSheet.create({
 
   textAction: {
     fontSize: 16,
-    fontWeight: 'bold', 
-    
+    fontWeight: 'bold',
+
     color: '#f3f3f3'
-  }, 
+  },
 
   leftAction: {},
 
   actionText: {},
 
-  dtContainer:{
+  dtContainer: {
     flex: 1,
-    
-    
+
+
     paddingHorizontal: 10
-  }, 
-  
+  },
+
   dtHeader: {
-    flexDirection: 'row', 
-    
-    alignItems: 'center', 
+    flexDirection: 'row',
+
+    alignItems: 'center',
     justifyContent: 'space-around',
-    
+
     height: 120,
     paddingHorizontal: 20,
-    
-  }, 
-  
-  dtImage:{
-    width: 70, 
+
+  },
+
+  dtImage: {
+    width: 70,
     height: 70,
-    
+
     marginTop: 18,
-    
+
     borderRadius: 50,
-    
-    alignItems: 'center', 
+
+    alignItems: 'center',
     justifyContent: 'center',
-    
+
     backgroundColor: '#a1d53e'
-    
-  }, 
-  
+
+  },
+
   dtValue: {
-    fontSize: 30, 
-    
+    fontSize: 30,
+
     fontWeight: 'bold'
-  }, 
-  
+  },
+
   dtBody: {
     paddingHorizontal: 3,
     flexDirection: 'column',
 
   },
-  dtSituation:{
+  dtSituation: {
     paddingBottom: 9,
 
     justifyContent: 'space-between',
@@ -158,7 +158,7 @@ export default StyleSheet.create({
   colContent: {},
 
   dtColContent: {
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
     flexDirection: 'row'
   },
 
@@ -173,29 +173,29 @@ export default StyleSheet.create({
   },
   dtTextCaps: {
     fontSize: 20,
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
     color: '#76f'
-  }, 
+  },
   dtTextDescr: {
     fontSize: 19,
     paddingLeft: 8,
     fontWeight: 'bold',
     color: '#777'
-  }, 
+  },
 
   contentButton: {
     marginTop: 40,
     height: 50,
 
-    flexDirection: 'row', 
+    flexDirection: 'row',
 
-  }, 
-  
+  },
+
   dtbutton: {
     flex: 1,
-    paddingHorizontal: 12, 
+    paddingHorizontal: 12,
     paddingVertical: 4,
-    
+
     marginHorizontal: 4,
 
     alignItems: 'center',
@@ -204,11 +204,11 @@ export default StyleSheet.create({
     backgroundColor: "#9393d3",
 
     borderRadius: 10
-  }, 
-  
+  },
+
   dtButtonText: {
-    fontSize: 18, 
-    
+    fontSize: 18,
+
     color: '#fff'
   }
 })

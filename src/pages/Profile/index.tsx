@@ -1,14 +1,14 @@
 import React, { ReactNode, useCallback, useContext, useState } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 
-import {FontAwesome} from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons';
 
 import {
   Image,
   RefreshControl,
   SafeAreaView,
   ScrollView,
-  Text, 
+  Text,
   TouchableOpacity,
   View
 } from 'react-native';
@@ -35,14 +35,14 @@ function Screen() {
 
     wait(2000).then(() => setRefreshing(false));
   }, []);
-  
-  return(
-    <SafeAreaView style={{flex: 1}}>
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView
         refreshControl={
-          <RefreshControl 
-            refreshing={refreshing} 
-            onRefresh={onRefresh} 
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
           />}
         style={styles.profileContainer}>
         <View style={styles.statistics}>
@@ -60,14 +60,17 @@ function Screen() {
             </View>
           </View>
         </View>
-        <View style={styles.bar}>
+        {/* <View style={styles.bar}>
           <Text style={styles.value}>100</Text>
-          <ProgressBar 
-            progress={0.593} 
-            color='#9a89e6' 
+          <ProgressBar
+            progress={0.593}
+            color='#9a89e6'
             style={styles.progressBar}
           />
           <Text style={styles.value}>500</Text>
+        </View> */}
+        <View style={styles.information}>
+          <Text style={styles.name}>Ludriano Washington</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -77,7 +80,7 @@ function Screen() {
 
 // Header Function
 export default function Profile() {
-  const {signOut} = useContext(AuthContext);
+  const { signOut } = useContext(AuthContext);
 
 
   function handleSignOut() {
@@ -87,7 +90,7 @@ export default function Profile() {
   return (
 
     <AppStack.Navigator >
-      <AppStack.Screen name='Profile' 
+      <AppStack.Screen name='Profile'
         component={Screen}
         options={{
           title: 'Perfil',
@@ -120,10 +123,10 @@ export default function Profile() {
             </View>
           )
         }}
-        />
+      />
     </AppStack.Navigator>
 
-    
+
   );
 
 };

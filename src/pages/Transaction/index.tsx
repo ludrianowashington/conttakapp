@@ -1,9 +1,9 @@
 import React, { ReactNode, useContext, useState } from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from '@react-navigation/native';
-import {RectButton, Swipeable} from 'react-native-gesture-handler';
+import { RectButton, Swipeable } from 'react-native-gesture-handler';
 
-import {FontAwesome} from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons';
 
 import {
   Animated,
@@ -13,7 +13,7 @@ import {
   Image,
   RefreshControl,
   ScrollView,
-  Text, 
+  Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View
@@ -24,6 +24,7 @@ import styles from './styles';
 import AuthContext from '../../contexts/auth';
 import { list } from './list';
 import Modal from '../../components/Modal';
+import Entry from '../Entry';
 
 
 const AppStack = createStackNavigator();
@@ -47,7 +48,7 @@ function Screen() {
   }, []);
 
 
-  const renderRightAction = (text: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined, color: any, x: any, progress: { interpolate: ( arg0: { inputRange: number[]; outputRange: any[]; } ) => any; }) => {
+  const renderRightAction = (text: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined, color: any, x: any, progress: { interpolate: (arg0: { inputRange: number[]; outputRange: any[]; }) => any; }) => {
     const trans = progress.interpolate({
       inputRange: [0, 1],
       outputRange: [x, 0],
@@ -67,7 +68,7 @@ function Screen() {
     );
   };
 
- 
+
   const updateRef = (ref: any) => {
     const _swipeableRow = ref;
 
@@ -77,8 +78,8 @@ function Screen() {
   const close = () => {
     close();
   };
-  
-  const RightAction = () =>  (
+
+  const RightAction = () => (
     <>
       <TouchableOpacity style={styles.rightAction}>
         <Text style={styles.textAction}>Delete</Text>
@@ -98,13 +99,13 @@ function Screen() {
       <View style={styles.date}>
 
       </View>
-      
-        <FlatList 
-          data={list}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-          keyExtractor={item => String(item.id)}
-          renderItem={({item, index})=>(
-            <Swipeable
+
+      <FlatList
+        data={list}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item, index }) => (
+          <Swipeable
             ref={updateRef}
             friction={2}
             leftThreshold={30}
@@ -112,37 +113,37 @@ function Screen() {
             renderRightActions={RightAction}
             onSwipeableRightOpen={() => console.log('Opening...')}
             enableTrackpadTwoFingerGesture
+          >
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Details')}
             >
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Details')}
-              >
-                <View style={styles.listItem} key={index}>
-                  <View style={styles.img}>
-                    <Text>{item.image}</Text>
-                  </View>
-                  <View style={styles.name}>
-                    <Text style={styles.titleItem}>{item.title}</Text>
-                    <Text style={styles.dateItem}>{item.date}</Text>
-                  </View>
-                  <View style={styles.value}>
-                    <Text style={styles.currency}>R$ {item.value}</Text>
-                    <Text style={styles.currency}>R$ {item.value}</Text>
-                  </View>
+              <View style={styles.listItem} key={index}>
+                <View style={styles.img}>
+                  <Text>{item.image}</Text>
                 </View>
-              </TouchableOpacity>
-            </Swipeable>
-          )}
-          
-        />
-        
+                <View style={styles.name}>
+                  <Text style={styles.titleItem}>{item.title}</Text>
+                  <Text style={styles.dateItem}>{item.date}</Text>
+                </View>
+                <View style={styles.value}>
+                  <Text style={styles.currency}>R$ {item.value}</Text>
+                  <Text style={styles.currency}>R$ {item.value}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          </Swipeable>
+        )}
+
+      />
+
     </View>
   )
 }
 
-function Details(){
+function Details() {
 
   const navigation = useNavigation();
-  
+
 
   return (
     <View style={styles.dtContainer}>
@@ -154,7 +155,7 @@ function Details(){
         <Text style={styles.dtValue}>R$ 82,35</Text>
 
         <View>
-          <FontAwesome name='thumbs-up' size={28}/>
+          <FontAwesome name='thumbs-up' size={28} />
         </View>
       </View>
       <View style={styles.dtBody}>
@@ -219,20 +220,22 @@ function Details(){
         <TouchableOpacity style={styles.dtbutton}>
           <Text style={styles.dtButtonText}>Editar</Text>
         </TouchableOpacity>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.dtbutton}
-          onPress={()=> navigation.goBack()}>
+          onPress={() => navigation.goBack()}>
           <Text style={styles.dtButtonText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
 
-    </View>      
+    </View>
   )
 }
 
 // Header Function
 export default function Transaction() {
-  const {signOut} = useContext(AuthContext);
+  const { signOut } = useContext(AuthContext);
+
+  const navigation = useNavigation();
 
   function handleCancel() {
 
@@ -245,7 +248,7 @@ export default function Transaction() {
   return (
 
     <AppStack.Navigator initialRouteName='Transaction'>
-      <AppStack.Screen name='Transaction' 
+      <AppStack.Screen name='Transaction'
         component={Screen}
         options={{
           title: 'Transações',
@@ -264,15 +267,17 @@ export default function Transaction() {
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity style={styles.touchableRight}>
-              <FontAwesome name='ellipsis-v' size={23} color='#f9f9f9' />
+            <TouchableOpacity
+              style={styles.touchableRight}
+              onPress={() => navigation.navigate('Entry')}>
+              <FontAwesome name='plus' size={23} color='#f9f9f9' />
             </TouchableOpacity>
           )
         }}
-        
+
       />
 
-      <AppStack.Screen 
+      <AppStack.Screen
         name='Details'
         component={Details}
         options={{
@@ -287,9 +292,25 @@ export default function Transaction() {
           }
         }}
       />
+
+      <AppStack.Screen
+        name="Entry"
+        component={Entry}
+        options={{
+          title: 'Entrada',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+          }
+        }}
+      />
     </AppStack.Navigator>
-    
-    
+
+
   );
 
 };

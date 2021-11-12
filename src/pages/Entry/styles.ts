@@ -6,7 +6,6 @@ export default StyleSheet.create({
   },
 
   view: {
-    flex: 1,
     height: 150,
 
     flexDirection: 'column',
@@ -14,7 +13,7 @@ export default StyleSheet.create({
   },
 
   display: {
-    flex: 1,
+    height: 100,
     flexDirection: 'row',
     alignContent: 'center',
     justifyContent: 'center',
@@ -62,12 +61,102 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     fontStyle: 'italic',
-    color: '#8a8a8a'
+    color: '#8175BA',
   },
 
   viewInputs: {
-    flex: 1,
+    flex: 1
+  },
 
-    backgroundColor: '#a42add'
+  form: {
+    paddingVertical: 12,
+  },
+
+  formInputs: {
+    height: 80,
+    paddingVertical: 6,
+    paddingHorizontal: 15,
+  },
+
+  textForm: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#8175BA',
+
+  },
+
+  inputForm: {
+    height: 25,
+    marginTop: 4,
+    fontSize: 20,
+    color: '#8175BA',
+  },
+
+  buttonForm: {
+    fontSize: 17,
+    color: '#8175BA',
+
+  },
+
+  viewButtons: {
+    flex: .7,
+
+    flexDirection: 'row',
+  },
+
+  viewSelection: {
+    flex: .3,
+    paddingVertical: 5,
+    paddingHorizontal: 9,
+  },
+
+  buttonsGroup: {
+    flexDirection: 'row',
+  },
+
+  buttonType: {
+    height: 25,
+    borderWidth: 1,
+    borderColor: '#8175BA',
+    borderRadius: 50,
+    marginRight: 9,
+    marginTop: 9,
+    paddingHorizontal: 14,
+    justifyContent: 'center'
+  },
+
+  buttonTypeText: {
+    fontSize: 18,
+    color: '#8175BA',
+
+  },
+
+  formButton: {
+    height: 70,
+    paddingVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  formButtonText: {
+    fontSize: 22,
+    color: '#8175BA',
+  },
+
+  submit: {
+    flex: 1,
+    height: 90,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  submitButton: {
+    width: 75,
+    height: 75,
+    borderRadius: 50,
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#65D26A'
   }
 })

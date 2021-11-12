@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -12,64 +12,64 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
 
-  touchLeft: {    
-    paddingLeft: 5, 
+  touchLeft: {
+    paddingLeft: 5,
 
   },
 
   buttonsTouch: {
-    width: 90, 
-    flexDirection: 'row', 
+    width: 90,
+    flexDirection: 'row',
 
     justifyContent: 'space-around',
 
   },
 
-  touchableRight: { 
-    padding: 5,  
+  touchableRight: {
+    padding: 5,
     marginRight: 8,
 
   },
 
-  text: { 
-    alignSelf: 'center', 
+  text: {
+    alignSelf: 'center',
     color: '#f9f9f9'
   },
 
   profileContainer: {
     flex: .3,
-    
+
     paddingHorizontal: 10,
     paddingVertical: 6,
 
-    
+
   },
-  
+
   statistics: {
-    flexDirection: 'row', 
-    
+    flexDirection: 'row',
+
     height: 100,
-    
+
     // backgroundColor: '#19f9f9',
-    
-    alignItems: 'center', 
-  }, 
+
+    alignItems: 'center',
+  },
 
   image: {
-    width: 90, 
-    height: 90, 
+    width: 90,
+    height: 90,
 
     borderRadius: 50,
 
     marginVertical: 7,
     marginLeft: 5,
 
-    alignItems: 'center', 
-    justifyContent: 'center', 
+    alignItems: 'center',
+    justifyContent: 'center',
 
     backgroundColor: '#d2d5ef'
   },
-  
+
   letter: {
     fontSize: 20,
   },
@@ -85,45 +85,55 @@ export default StyleSheet.create({
   },
 
   dataItem: {
-    flex: 1, 
+    flex: 1,
 
     alignItems: 'center',
     justifyContent: 'center'
   },
 
   value: {
-    fontSize: 20, 
+    fontSize: 20,
     fontWeight: 'bold',
 
     color: '#857CE2'
-  }, 
+  },
 
   title: {
-    fontSize: 16, 
+    fontSize: 16,
     fontWeight: '600',
 
     color: '#47497a'
   },
 
   bar: {
-    
+
     flexDirection: 'row',
 
     alignItems: 'center',
     justifyContent: 'space-between',
 
     marginTop: 8,
-    marginHorizontal: 5,
-    
-    
-
-  }, 
+    marginHorizontal: 5
+  },
 
   progressBar: {
     width: 250,
-    height: 16, 
+    height: 16,
 
     borderRadius: 50
   },
+
+  information: {
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  name: {
+
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#8C9AAD'
+  }
 
 })
