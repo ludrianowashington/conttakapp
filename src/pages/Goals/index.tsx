@@ -5,6 +5,7 @@ import { ProgressBar } from "react-native-paper";
 import { FontAwesome } from "@expo/vector-icons";
 
 import {
+  Alert,
   FlatList,
   Image,
   RefreshControl,
@@ -18,9 +19,10 @@ import {
 import styles from "./styles";
 
 import AuthContext from "../../contexts/auth";
-import { list , transactions } from "./list";
+import { list, transactions } from "./list";
 import { useNavigation } from "@react-navigation/native";
 import App from "../../../App";
+import FormGoal from "../FormGoal";
 
 const AppStack = createStackNavigator();
 
@@ -53,7 +55,7 @@ function Screen() {
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item, index }) => (
             <TouchableOpacity
-              onPress={()=> navigation.navigate('GoalsDetails')}
+              onPress={() => navigation.navigate('GoalsDetails')}
             >
               <View style={styles.listItem} key={index}>
                 <View style={styles.titleList}>
@@ -93,11 +95,13 @@ function Screen() {
 export default function Goals() {
   const { signOut } = useContext(AuthContext);
 
-  function handleMenu() {}
+  function handleMenu() { }
 
   function handleSignOut() {
     signOut();
   }
+
+  const navigation = useNavigation();
 
   return (
     <AppStack.Navigator>
@@ -124,7 +128,10 @@ export default function Goals() {
             </View>
           ),
           headerRight: () => (
-            <TouchableOpacity style={styles.touchableRight}>
+            <TouchableOpacity
+              style={styles.touchableRight}
+              onPress={() => navigation.navigate('GoalsForm')}
+            >
               <FontAwesome name="plus" size={23} color="#f9f9f9" />
             </TouchableOpacity>
           ),
@@ -146,6 +153,23 @@ export default function Goals() {
           }
         }}
       />
+
+      <AppStack.Screen
+        name='GoalsForm'
+        component={FormGoal}
+        options={{
+          title: 'Detalhes',
+          headerStyle: {
+            backgroundColor: '#8257E5',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 13,
+            fontFamily: 'Archivo_700Bold',
+          }
+        }}
+      />
+
     </AppStack.Navigator>
   );
 }
@@ -186,11 +210,27 @@ function GoalsDetails() {
                     <Text style={styles.currency}>R$ {item.value}</Text>
                   </View>
                 </View>
-              )})
+              )
+            })
             }
-          
           </ScrollView>
         </View>
+      </View>
+
+      <View style={styles.submit}>
+        <TouchableOpacity
+          style={styles.submitButton}
+          onPress={() => Alert.alert('Atenção!!!', 'Este botão ainda não funciona', [
+            {
+              text: 'Cancel',
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            { text: 'Tudo bem', onPress: () => console.log('TUDO BEM Pressionado') },
+          ])}
+        >
+          <FontAwesome name='check' size={25} color='#EDECFA' />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );

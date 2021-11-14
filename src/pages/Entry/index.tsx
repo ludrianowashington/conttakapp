@@ -21,7 +21,8 @@ import {
   ButtonGroup
 } from 'react-native-elements';
 
-import styles from "./styles"
+import styles from "./styles";
+
 
 const AppStack = createStackNavigator();
 

@@ -1,8 +1,8 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     padding: 7
   },
 
@@ -13,19 +13,19 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
 
-  touchLeft: {    
-    paddingLeft: 5, 
+  touchLeft: {
+    paddingLeft: 5,
 
   },
 
-  touchableRight: { 
-    padding: 5,  
+  touchableRight: {
+    padding: 5,
     marginRight: 8,
 
   },
 
-  text: { 
-    alignSelf: 'center', 
+  text: {
+    alignSelf: 'center',
     color: '#f9f9f9'
   },
 
@@ -42,22 +42,22 @@ export default StyleSheet.create({
   },
 
   titleList: {
-   marginBottom: 6
-  }, 
+    marginBottom: 6
+  },
 
   titleText: {
     justifyContent: 'center',
-    
-    fontSize: 18, 
+
+    fontSize: 18,
     fontWeight: 'bold',
   },
-  
+
   bar: {
     paddingHorizontal: 5
-  }, 
+  },
 
   progressBar: {
-    height: 13, 
+    height: 13,
 
     borderRadius: 50
   },
@@ -74,7 +74,7 @@ export default StyleSheet.create({
   },
 
   op: {
-    
+
     width: 100,
     height: 40,
 
@@ -86,28 +86,28 @@ export default StyleSheet.create({
     paddingTop: 5,
     paddingHorizontal: 8,
 
-  }, 
-  
+  },
+
   glHeader: {
     marginBottom: 16,
-    
+
     flexDirection: 'column',
     alignItems: 'center',
   },
-  
+
   glPerc: {
     width: 100,
     height: 100,
-    
+
     borderRadius: 100,
-    
-    alignItems: 'center', 
+
+    alignItems: 'center',
     justifyContent: 'center',
-    
+
     marginTop: 13,
-    
+
     backgroundColor: '#7778a5'
-  }, 
+  },
 
   glPercText: {
     fontSize: 30,
@@ -117,9 +117,9 @@ export default StyleSheet.create({
 
   glTitle: {
     alignItems: 'center',
-        
+
     paddingTop: 12
-  }, 
+  },
 
   glTitleText: {
     fontSize: 25,
@@ -127,53 +127,53 @@ export default StyleSheet.create({
 
     color: '#77f'
   },
-  
+
   glValue: {
-    marginTop: 10, 
+    marginTop: 10,
 
     paddingLeft: 18,
     paddingHorizontal: 10
   },
-  
+
   glValueText: {
     fontSize: 16,
 
     color: '#5f5f5f'
   },
-  
+
   glValueCurrency: {
-    fontSize: 22, 
-    fontWeight: 'bold', 
+    fontSize: 22,
+    fontWeight: 'bold',
 
     color: '#6f6f6f'
   },
 
 
   glBody: {
-    flex: 1, 
+    flex: 1,
 
     marginTop: 30,
 
     borderRadius: 10,
 
     backgroundColor: '#d8d8d8'
-  }, 
+  },
 
   glBodyTitle: {
     paddingVertical: 10,
-    paddingHorizontal: 19, 
+    paddingHorizontal: 19,
 
   },
 
   glBodyTitleText: {
     fontSize: 20,
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
 
     color: '#77f'
   },
 
   glList: {
-    paddingHorizontal: 8, 
+    paddingHorizontal: 8,
 
     height: 400
   },
@@ -191,16 +191,16 @@ export default StyleSheet.create({
   },
 
   glImage: {
-    width: 60, 
+    width: 60,
     height: 60,
-    
+
     borderRadius: 50,
 
-    alignItems: 'center', 
+    alignItems: 'center',
     justifyContent: 'center',
 
     backgroundColor: '#9a9a9a'
-  }, 
+  },
 
   name: {
     flex: 1,
@@ -209,24 +209,39 @@ export default StyleSheet.create({
   },
 
   titleItem: {
-    fontSize: 18, 
+    fontSize: 18,
     fontWeight: 'bold',
-  }, 
+  },
 
   dateItem: {
     color: '#a5a5a5'
-  }, 
+  },
 
   value: {
     width: 120,
 
     alignItems: 'flex-end',
-  }, 
+  },
 
   currency: {
     fontSize: 16,
     fontWeight: 'bold'
   },
 
+  submit: {
+    flex: 1,
+    height: 90,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
+  submitButton: {
+    width: 75,
+    height: 75,
+    borderRadius: 50,
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#65D26A'
+  },
 })
